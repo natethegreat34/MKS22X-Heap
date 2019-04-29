@@ -26,7 +26,22 @@ public class MyHeap{
          // - precondition: size is between 0 and data.length-1 inclusive.
 
     private static void pushUp(int[]data,int index){
-        ;
+        int parent = data[index];
+        boolean done = false;
+        while (!done){
+            if (index == 0){
+                done = true;
+            }
+            if (data[index] < data[(index + 1) / 2]){
+                done = true;
+            }
+            else{
+                int hold = data [index];
+                data [index] = data [(index + 1) / 2];
+                data [(index + 1) / 2] = hold;
+                index = (index + 1) / 2;
+            }
+        }
     }
          // - push the element at index i up into the correct position. This will swap it with the parent node until the parent node is larger or the root is reached. [ should be O(logn) ]
          // - precondition: index is between 0 and data.length-1 inclusive.
