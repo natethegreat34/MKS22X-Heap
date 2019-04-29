@@ -1,6 +1,24 @@
 public class MyHeap{
     private static void pushDown(int[]data,int size,int index){
-        ;
+        int parent = data[index];
+        boolean done = false;
+        while (!done){
+            if (data[index] > data[index * 2 + 1] && data[index * 2 + 2]){
+                done = true;
+            }
+            else{
+                if (data[index * 2 + 1] > data[index * 2 + 2]){
+                    int hold = data [index];
+                    data [index] = data [index * 2 + 1];
+                    data [index * 2 + 1] = hold;
+                }
+                else {
+                    int hold = data [index];
+                    data [index] = data [index * 2 + 2];
+                    data [index * 2 + 2] = hold;
+                }
+            }
+        }
     }
          // - size  is the number of elements in the data array.
          // - push the element at index i downward into the correct position. This will swap with the larger of the child nodes provided thatchild is larger. This stops when a leaf is reached, or neither child is larger. [ should be O(logn) ]
