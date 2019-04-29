@@ -16,7 +16,20 @@ public class MyHeap{
 
     //We will discuss this today:
     public static void heapify(int[] a){
-        ;
+        int end = a.length - 1;
+        int max = a[end];
+        int pos = end;
+        for (int y = 0; y < a.length - 1; y ++){
+            for (int x = 0; x <= end; x ++){
+                if (a[x] > max){
+                    max = a [x];
+                    pos = x;
+                }
+            }
+                a [pos] = a [end];
+                a [end] = max;
+                end --;
+            }
     }
         // - convert the array into a valid heap. [ should be O(n) ]
 
