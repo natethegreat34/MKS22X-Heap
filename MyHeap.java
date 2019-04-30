@@ -14,6 +14,7 @@ public class MyHeap{
                     int hold = data [index];
                     data [index] = data [index * 2 + 1];
                     data [index * 2 + 1] = hold;
+                    index = index * 2 + 1;
                 }
                 else if (data[index] > data[index * 2 + 1] && data[index] > data[index * 2 + 2]){
                     // System.out.println("pip");
@@ -24,13 +25,16 @@ public class MyHeap{
                         int hold = data [index];
                         data [index] = data [index * 2 + 1];
                         data [index * 2 + 1] = hold;
+                        index = index * 2 + 1;
                     }
                 else {
                         //swap
                         int hold = data [index];
                         data [index] = data [index * 2 + 2];
                         data [index * 2 + 2] = hold;
+                        index = index * 2 + 2;
                     }
+                    //set new index to fully bubble down
 
         }
         // System.out.println("loolololololo");
@@ -75,17 +79,17 @@ public class MyHeap{
                 }
             }
                     // System.out.println("jkjkj");
-                    String l = "[";
-                    for (int i = 0; i < a.length; i ++){
-                        l = l + a[i] + " ";
-                    }
-                    System.out.println(l + "]");
+                    // String l = "[";
+                    // for (int i = 0; i < a.length; i ++){
+                    //     l = l + a[i] + " ";
+                    // }
+                    // System.out.println(l + "]");
                     pushDown(a, a.length, index);
-                    l = "hypo [";
-                    for (int i = 0; i < a.length; i ++){
-                        l = l + a[i] + " ";
-                    }
-                    System.out.println(l + "]");
+                    // l = "hypo [";
+                    // for (int i = 0; i < a.length; i ++){
+                    //     l = l + a[i] + " ";
+                    // }
+                    // System.out.println(l + "]");
                     index --;
             }
             }
