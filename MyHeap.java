@@ -2,26 +2,39 @@ public class MyHeap{
     private static void pushDown(int[]data,int size,int index){
         boolean done = false;
         while (!done && size > 0 && index * 2 + 1 < size){
+            // if (index * 2 + 2 < size){
+            //     String t = "[";
+            //     for (int i = 0; i < size; i ++){
+            //         t = t + data[i] + " ";
+            //     }
+            //     System.out.println(t + "]");
+            // }
+            // System.out.println(data[index] + "kcdovsdono");
 
             // System.out.println("lljkdkahDKHSDKHA" + index + "   " + size);
             //     System.out.println("okkokookkookokok");
                 if (index * 2 + 2 >= size ){
                         // System.out.println("12345678543234567876543k");
                     if (data[index] >= data[index * 2 + 1]){
+                        // System.out.println("cry");
                         done = true;
+                        // System.out.println("huh");
                     }
+                    else{
+                    // System.out.println("hold up");
                     //swap
                     int hold = data [index];
                     data [index] = data [index * 2 + 1];
                     data [index * 2 + 1] = hold;
                     index = index * 2 + 1;
                 }
+                }
                 else if (data[index] > data[index * 2 + 1] && data[index] > data[index * 2 + 2]){
                     // System.out.println("pip");
                     done = true;
                 }
                 else if (data[index * 2 + 1] > data[index * 2 + 2]){
-                        //swap after finding the bigger of the two
+
                         int hold = data [index];
                         data [index] = data [index * 2 + 1];
                         data [index * 2 + 1] = hold;
@@ -37,6 +50,7 @@ public class MyHeap{
                     //set new index to fully bubble down
 
         }
+        // System.out.println("size  " + size + "         index"  + index);
         // System.out.println("loolololololo");
     }
          // - size  is the number of elements in the data array.
@@ -107,6 +121,11 @@ public class MyHeap{
             a[0] = a[size - 1];
             a[size - 1] = hold;
             // System.out.println("hhhh" + size);
+            // String t = "[";
+            // for (int i = 0; i < a.length; i ++){
+            //     t = t + a[i] + " ";
+            // }
+            // System.out.println(t + "]");
             pushDown(a, size - 1, 0);
             size --;
         }
